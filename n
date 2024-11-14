@@ -1,0 +1,28 @@
+def kwadrat_p(a):
+    return a*a
+def kwadrat_obw(a):
+    return a*4
+def prostokat_p(a,b):
+    return a*b
+def prostokat_obw(a,b):
+    return 2*a+2*b
+def rownoleglobok_p(a,h):
+    return a*h
+def rownoleglobok_o(a,b):
+    return 2*a + 2*b
+def trapez_o(a,b,c,d):
+    return a+b+c+d
+def trapez_p(a,b,h):
+    return ((a+b)*h)/2
+def trojkat_o(a,b,c):
+    return a+b+c
+def trojkat_p(a,h):
+    return (1/2)*a*h
+def trojkat_r_o(a):
+    return 3*a
+def trojkat_r_p(a):
+    return (a**2*3**(1/2))/4
+def romb_o(a):
+    return 4*a
+def romb_p(a,h):
+    return a*h
