@@ -1,0 +1,20 @@
+import ddd
+
+while True:
+    print("Twoja ksiazka")
+    print("w - wyjdz z programu")
+    print("i - informacje o ksiazce")
+    print("e - edytuj ksiazke")
+    print("---"*25)
+    inp = input().lower()
+    if "w" == inp:
+        break
+    elif "i" == inp:
+        ddd.inf(ddd.ksiazka)
+    elif "e" == inp:
+        ddd.edycja(ddd.ksiazka)
+    elif "d" == inp:
+        ddd.edytuj_bohaterow(ddd.ksiazka)
+    else:
+        print("Program zakonczyl dzialanie")
+        break
