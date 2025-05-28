@@ -1,0 +1,125 @@
+import uuid
+k = {
+    "id": uuid.uuid4(),
+    "nazwa": "Władca pierścieni",
+    "autor": "John Ronald Reuel Tolkien",
+    "gatunek": "fantasy",
+    "liczba Stron": 300
+    }
+k1 = {
+    "id": uuid.uuid4(),
+    "tytul": "Balladyna",
+    "autor": "Juliusz Slowacki",
+    "gatunek": "dramat"
+,
+    "ile stron": 188    
+}
+k2 = {
+    "id": uuid.uuid4(),
+                "tytul": "Dziady",
+    "autor": "Adam Mickiewicz",
+    "gatunek": "dramat",
+    "ile stron": 235
+    
+}
+k3 = {   
+    "id": uuid.uuid4(),
+    "tytul": "Pan Tadeusz",
+    "autor": "Adam Mickiewicz",
+    "gatunek": "epopeja",
+    "ile stron": 542
+    
+}
+k4 = {
+    "id": uuid.uuid4(),
+    "tytul": "Zemsta",
+    "autor": "Aleksander Fredro",
+    "gatunek": "zemsta",
+    "ile stron": 325
+    
+}
+
+biblioteka = [k, k1, k2, k3, k4]
+
+#----------------------------------------------------------------
+def inf_o_slowniku(dc):
+    for k,v in dc.items():
+        print(f"{k}: {v}")
+        
+
+#----------------------------------------------------------------
+def inf_o_liscie(list):
+    for x in list:
+        #for k, v in x.items():
+        #    print(f"{k}: {v}")
+        inf_o_slowniku(x)
+        print("")
+#----------------------------------------------------------------
+
+def edycja(dc):
+    print("Wprowadz klucz jaki chcesz edytowac")
+    print("---"*20)
+    inf_o_slowniku(dc)
+    print("---"*20)
+    inp = input()
+    if inp == "glowni bohaterowie":
+        edycja_listy(dc[inp])
+    else:
+        dc[inp] = input("podaj nowe dane: ")
+
+
+
+def edycja_listy(lst):
+    
+    while True:
+        print(lst)
+        print('a - dodaj element')
+        print('u - usun element')
+        print('e - wyjdz z edycji list')
+        inp = input()
+        if 'n' == inp:
+            nowy_element = input("Wpisz nowy element: ")
+            lst.append(nowy_element)
+            print(f'dodano element: {nowy_element}')
+        elif 'u' == inp:
+            nowy_element =input("Wpisz element ktory chcesz usunac: ")
+            lst.remove(nowy_element)
+            print(f'usunieto element {nowy_element}')
+        elif 'e' == inp:
+            break
+        else:
+            print("Nie ma takiej komendy")
+
+def znajdz_ksiazke(lst):
+    inp = input("Podaj Autora: ")
+    for x in biblioteka:
+        if x["autor"] == inp:
+            print("znaleziono ksiazke: ")
+            inf_o_slowniku(x)
+            print("")
+
+            while True:
+                print("")
+                print("Twoja ksiazka")
+                print("p - powrot do biblioteki")
+                print("e - edytuj ksiazke")
+                print("---"*25)
+                inp = input().lower()
+                if "p" == inp:
+                    break
+                elif "e" == inp:
+                    edycja(x)
+                else:
+                    print("Niepoprawny wybor")
+                
+def usun_ksiazke(lst):
+    inf_o_liscie(lst)
+    inp = input("Podaj id ksiazki ktora chcesz usunac: ")
+    for x in lst:
+        if x["id"] == uuid.UUID(inp):
+            lst.remove(x)
+            print(f"Usunieto ksiazke pod tytulem: {x['tytul']}")
+            break
+    else:
+        print("Nie znaleziono ksiazki o podanym id.")
+ 
