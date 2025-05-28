@@ -1,0 +1,22 @@
+import bibliotek
+
+while True:
+    print("Twoja biblioteka")
+    print("Co chcesz zrobic:")
+    print("w - wyjdz z programu")
+    print("i - informacje o bibliotece")
+    print("u - usun ksiazke")
+    print("z - znajdz ksiazke")
+    print("---"*25)
+    inp = input().lower()
+    if "w" == inp:
+        print("Program zakonczyl dzialanie")
+        break
+    elif "i" == inp:
+        bibliotek.inf_o_liscie(bibliotek.biblioteka)
+    elif "z" == inp:
+        bibliotek.znajdz_ksiazke(bibliotek.biblioteka)
+    elif "u" == inp:
+        bibliotek.usun_ksiazke(bibliotek.biblioteka)
+    else:
+        print("Niemozliwe dzialanie")
